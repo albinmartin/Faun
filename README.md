@@ -1,2 +1,2 @@
-# gameSandbox
-Base game engine 
+# Faun
+Game based on gameSandbox repository. 
