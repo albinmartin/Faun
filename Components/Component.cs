@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Entities;
+using Faun.Entities;
 
-namespace GameSandbox.Components
+namespace Faun.Components
 {
     [Flags]
     public enum ComponentType { //Use values with power of 2 for bitmask purposes

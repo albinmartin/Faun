@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using GameSandbox.GameState;
-using GameSandbox.Controls;
+using Faun.GameState;
+using Faun.Controls;
 using Microsoft.Xna.Framework.Content;
 
-namespace GameSandbox
+namespace Faun
 {
     public class GameMain : Game
     {

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Components;
-using GameSandbox.Controls;
-using GameSandbox.Entities;
+using Faun.Components;
+using Faun.Controls;
+using Faun.Entities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace GameSandbox.Systems
+namespace Faun.Systems
 {
     class PlayerSystem : GameSystem
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Components;
-using GameSandbox.Entities;
+using Faun.Components;
+using Faun.Entities;
 using Microsoft.Xna.Framework;
 
-namespace GameSandbox.Systems
+namespace Faun.Systems
 {
     class AnimationSystem : GameSystem
     {

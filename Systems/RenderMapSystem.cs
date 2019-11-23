@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Entities;
+using Faun.Entities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameSandbox.Systems
+namespace Faun.Systems
 {
     class RenderMapSystem : DrawSystem
     {

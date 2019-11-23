@@ -1,12 +1,12 @@
-﻿using GameSandbox.Controls;
-using GameSandbox.Entities;
+﻿using Faun.Controls;
+using Faun.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameSandbox.Components
+namespace Faun.Components
 {
     class Player : Component
     {

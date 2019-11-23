@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using GameSandbox.Entities;
+using Faun.Entities;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using GameSandbox.Components;
-using GameSandbox.Systems;
-using GameSandbox.Controls;
+using Faun.Components;
+using Faun.Systems;
+using Faun.Controls;
 
-namespace GameSandbox.GameState
+namespace Faun.GameState
 {
     /*
      * TODO: Consider replacing this with world as they are the same at the moment.

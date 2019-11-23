@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Components;
+using Faun.Components;
 
-namespace GameSandbox.Entities
+namespace Faun.Entities
 {
     public class Entity
     {

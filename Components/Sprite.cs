@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Entities;
+using Faun.Entities;
 using Microsoft.Xna.Framework;
 
-namespace GameSandbox.Components
+namespace Faun.Components
 {
     // Enum for spritesheet index
     public enum SpriteType { Goatman = 0 }

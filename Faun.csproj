@@ -9,8 +9,8 @@
     <ProjectGuid>{F6613B38-FD62-48D3-8E9B-764181D63B69}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameSandbox</RootNamespace>
-    <AssemblyName>GameSandbox</AssemblyName>
+    <RootNamespace>Faun</RootNamespace>
+    <AssemblyName>Faun</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>

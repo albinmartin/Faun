@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
-namespace GameSandbox.Controls
+namespace Faun.Controls
 {
     public class InputManager
     {

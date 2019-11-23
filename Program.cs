@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameSandbox
+namespace Faun
 {
 #if WINDOWS || LINUX
     /// <summary>

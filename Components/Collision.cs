@@ -1,5 +1,5 @@
-﻿using GameSandbox.Entities;
-using GameSandbox.MathExtended;
+﻿using Faun.Entities;
+using Faun.MathExtended;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameSandbox.Components
+namespace Faun.Components
 {
     class Collision : Component
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Diagonactic;
-using GameSandbox.Components;
+using Faun.Components;
 
-namespace GameSandbox.Entities
+namespace Faun.Entities
 {
     public class EntityManager
     {

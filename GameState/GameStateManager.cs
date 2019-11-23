@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using GameSandbox.Controls;
+using Faun.Controls;
 
 
-namespace GameSandbox.GameState
+namespace Faun.GameState
 {
     public class GameStateManager
     {

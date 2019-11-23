@@ -89,3 +89,41 @@
 /Content/obj/Windows/landscape/grass_light_fall.mgcontent
 /Content/obj/Windows/landscape/grass_muted.mgcontent
 /Content/obj/Windows/landscape/grass_muted_fall.mgcontent
+
+#Ignore thumbnails created by Windows
+Thumbs.db
+#Ignore files built by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+.vs/
+#Nuget packages folder
+packages/
+obj/
+bin/
+/Content/obj/Windows/Content/.mgcontent
+/Content/obj/Windows/Content/menu/main1.mgcontent
+/Content/obj/Windows/Content/menu/main2.mgcontent
+/Content/obj/Windows/Content/menu/world.mgcontent

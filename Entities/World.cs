@@ -4,13 +4,13 @@ using System.Text;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using GameSandbox.Systems;
-using GameSandbox.Components;
+using Faun.Systems;
+using Faun.Components;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using GameSandbox.Controls;
+using Faun.Controls;
 
-namespace GameSandbox.Entities
+namespace Faun.Entities
 {
     public class World
     {

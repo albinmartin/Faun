@@ -1,4 +1,4 @@
-﻿using GameSandbox.Entities;
+﻿using Faun.Entities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameSandbox.Components
+namespace Faun.Components
 {
     public enum Direction { Left = 0, Right = 1, Up = 2, Down = 3}
 

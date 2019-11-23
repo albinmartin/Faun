@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Components;
-using GameSandbox.Entities;
-using GameSandbox.MathExtended;
+using Faun.Components;
+using Faun.Entities;
+using Faun.MathExtended;
 using Microsoft.Xna.Framework;
 
-namespace GameSandbox.Systems
+namespace Faun.Systems
 {
     class CollisionSystem : GameSystem
     {

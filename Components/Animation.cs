@@ -1,11 +1,11 @@
-﻿using GameSandbox.Entities;
+﻿using Faun.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameSandbox.Components
+namespace Faun.Components
 {
     // Enum for spritesheet indexes
     // TODO: Fix spritesheet and update indexes, idle should be 0 IMO!

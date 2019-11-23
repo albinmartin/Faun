@@ -1,5 +1,5 @@
-﻿using GameSandbox.Components;
-using GameSandbox.Entities;
+﻿using Faun.Components;
+using Faun.Entities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameSandbox.Systems
+namespace Faun.Systems
 {
     public abstract class GameSystem
     {

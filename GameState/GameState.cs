@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSandbox.Controls;
+using Faun.Controls;
 
-namespace GameSandbox.GameState
+namespace Faun.GameState
 {
     public abstract class GameState
     {
