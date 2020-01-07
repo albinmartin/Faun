@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Faun.Components;
 using Faun.Controls;
 using Faun.Entities;
+using Faun.Global;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
@@ -14,17 +15,21 @@ namespace Faun.Systems
     class PlayerSystem : GameSystem
     {
         InputManager _input;
-        public PlayerSystem(EntityManager entityManager, InputManager input)
+        Camera _camera;
+
+        public PlayerSystem(EntityManager entityManager, InputManager input, Camera camera)
             : base(entityManager)
         {
             _input = input;
             _entitySet = ComponentType.Player | ComponentType.Movement;
+            _camera = camera;
         }
 
         public override void Update(GameTime gameTime)
         {
             List<Entity> players = _entityManager.GetEntities(_entitySet);
-            int i = 0;
+
+            // Input.
             if (players.Count > 0)
             {
                 Keys[] keys = _input.GetKeysDown();
@@ -55,8 +60,14 @@ namespace Faun.Systems
                 {
                     // Update movement.
                     Movement m = (Movement)_entityManager.GetComponent(player, ComponentType.Movement);
-                    m.Velocity += direction * m.Speed * (gameTime.ElapsedGameTime.Milliseconds/16.0f);                    
+                    m.Velocity += direction * m.Speed * (gameTime.ElapsedGameTime.Milliseconds/16.0f);
+
+                    // Update camera. 
+                    //TODO: Adjust for multiple players.
+                    _camera.Update(m.Position);
                 }
+
+                
             }
 
         }

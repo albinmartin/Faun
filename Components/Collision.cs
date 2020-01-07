@@ -22,7 +22,7 @@ namespace Faun.Components
             CollidedWith = new List<Entity>();
             
             // Default bounding box
-            BoundingBox = new Rectangle(0, 0, 40,170 );
+            BoundingBox = new Rectangle(0, 0, 40,80 );
         }
 
         public override void OnShutdown()

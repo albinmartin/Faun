@@ -9,6 +9,7 @@ using Faun.Components;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Faun.Controls;
+using Faun.Global;
 
 namespace Faun.Entities
 {
@@ -17,24 +18,28 @@ namespace Faun.Entities
         private List<GameSystem> _systems;
         private List<DrawSystem> _drawSystems; //TODO: implement
         private EntityManager _entityManager;
+        private Camera _camera;
 
         public World()
         {
             _systems = new List<GameSystem>();
             _drawSystems = new List<DrawSystem>();
             _entityManager = new EntityManager();
+  
         }
 
         public void LoadContent(ContentManager content, GraphicsDevice graphics, InputManager input)
         {
-            // Create systems.
-            AddSystem(new RenderMapSystem(_entityManager, content, graphics));
-            AddSystem(new RenderSystem(_entityManager, content, graphics));
-            AddSystem(new PlayerSystem(_entityManager, input));
+            // Create Camera
+            _camera = new Camera(graphics);
+
+            // Create systems. Exectued in the order they are added.
+            AddSystem(new RenderMapSystem(_entityManager, content, graphics, _camera));
+            AddSystem(new RenderSystem(_entityManager, content, graphics, _camera));
+            AddSystem(new PlayerSystem(_entityManager, input, _camera));
             AddSystem(new AnimationSystem(_entityManager));
             AddSystem(new CollisionSystem(_entityManager));
             AddSystem(new MovementSystem(_entityManager));
-
 
             // Create Entities.
             Entity e = new Entity();

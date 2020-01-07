@@ -8,27 +8,29 @@ using Faun.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Faun.Global;
 
 namespace Faun.Systems
 {
     class RenderSystem : DrawSystem
     {
-        private SpriteBatch _spriteBatch;
+        SpriteBatch _spriteBatch;
+        Texture2D _spritesheet;
+        SpriteFont _spriteFont;
+        Rectangle[,] _spriteParts;
+        Camera _camera;
 
-        // Spritesheet related.
-        private Texture2D _spritesheet;
-        private Rectangle[,] _spriteParts;
-        
-        public RenderSystem(EntityManager entityManager, ContentManager content, GraphicsDevice graphics)
+        public RenderSystem(EntityManager entityManager, ContentManager content, GraphicsDevice graphics, Camera camera)
             :base(entityManager, content, graphics)
         {
             // Configure spritebatch.
             _spriteBatch = new SpriteBatch(graphics);
             _entitySet = ComponentType.Sprite;
 
-            // Load spritesheets.
+            // Load spritesheets & fonts.
             _spritesheet = Content.Load<Texture2D>("entities/spritesheet_goat_v1");
-
+            _spriteFont = Content.Load<SpriteFont>("fonts/defaultDebug");
+            
             // Create source rectangles.
             int spritesPerRow = 16;
             _spriteParts = new Rectangle[1,spritesPerRow];
@@ -39,22 +41,25 @@ namespace Faun.Systems
             {
                 _spriteParts[0, i] = new Rectangle(i*(width/spritesPerRow), 0, width / spritesPerRow, height);
             }
-            
 
+            // Camera
+            _camera = camera;
         }
 
         public override void Draw()
         {
+            float debugDepth = 0.0f;
+
             // Collect entities.
             List<Entity> sprites = _entityManager.GetEntities(ComponentType.Sprite);
             
-            _spriteBatch.Begin();
-            foreach(var entity in sprites)
+            _spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null,null,null,null, _camera.Transform);
+            foreach (var entity in sprites)
             {
                 Vector2 pos = ((Movement)_entityManager.GetComponent(entity, ComponentType.Movement)).Position;
-                Rectangle sourceRect;
 
-                // Get animation frame if animated sprite.
+                // Get texture from spritesheet. Check if animated and pick correct frame.
+                Rectangle sourceRect;
                 Animation animation = (Animation)_entityManager.GetComponent(entity, ComponentType.Animation);
                 if (animation != null)
                 {
@@ -66,9 +71,19 @@ namespace Faun.Systems
                 }
 
                 // Draw sprite.
-                _spriteBatch.Draw(_spritesheet,pos, sourceRect, Color.White);
+                //_spriteBatch.Draw(_spritesheet,pos, sourceRect, Color.White);
+                Vector3 depth = (Matrix.Identity *  Matrix.CreateTranslation(-pos.X,-pos.Y, 0)* _camera.Transform).Translation;
+                depth.Normalize();
+                debugDepth = depth.Y;
+                _spriteBatch.Draw(_spritesheet, pos, sourceRect, Color.White, 0, new Vector2(0.5f, 0.5f), 1, SpriteEffects.None, 0);
             }
             _spriteBatch.End();
+
+            
+            _spriteBatch.Begin();
+            _spriteBatch.DrawString(_spriteFont, "Depth: "+debugDepth.ToString(), new Vector2(5,5), Color.White);
+            _spriteBatch.End();
+            
         }
 
         public override void Update(GameTime gameTime)

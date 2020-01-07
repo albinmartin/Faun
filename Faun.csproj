@@ -56,6 +56,7 @@
     <Compile Include="GameState\GameStateManager.cs" />
     <Compile Include="GameState\MainMenu.cs" />
     <Compile Include="GameState\WorldState.cs" />
+    <Compile Include="Global\Camera.cs" />
     <Compile Include="MathExtended\RectangleF.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

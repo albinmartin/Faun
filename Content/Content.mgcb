@@ -49,6 +49,13 @@
 /processorParam:TextureFormat=Color
 /build:entities/spritesheet1.png
 
+#begin fonts/defaultDebug.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:fonts/defaultDebug.spritefont
+
 #begin landscape/grass.png
 /importer:TextureImporter
 /processor:TextureProcessor
