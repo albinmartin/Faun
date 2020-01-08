@@ -16,7 +16,6 @@ namespace Faun.Systems
     {
         SpriteBatch _spriteBatch;
         Texture2D _spritesheet;
-        SpriteFont _spriteFont;
         Rectangle[,] _spriteParts;
         Camera _camera;
 
@@ -29,7 +28,6 @@ namespace Faun.Systems
 
             // Load spritesheets & fonts.
             _spritesheet = Content.Load<Texture2D>("entities/spritesheet_goat_v1");
-            _spriteFont = Content.Load<SpriteFont>("fonts/defaultDebug");
             
             // Create source rectangles.
             int spritesPerRow = 16;
@@ -78,12 +76,9 @@ namespace Faun.Systems
                 _spriteBatch.Draw(_spritesheet, pos, sourceRect, Color.White, 0, new Vector2(0.5f, 0.5f), 1, SpriteEffects.None, 0);
             }
             _spriteBatch.End();
-
-            
-            _spriteBatch.Begin();
-            _spriteBatch.DrawString(_spriteFont, "Depth: "+debugDepth.ToString(), new Vector2(5,5), Color.White);
-            _spriteBatch.End();
-            
+            DebugDraw.Print("Depth = " + debugDepth.ToString());
+            DebugDraw.Print("Depth = " + debugDepth.ToString());
+            DebugDraw.Print("Depth = " + debugDepth.ToString());
         }
 
         public override void Update(GameTime gameTime)

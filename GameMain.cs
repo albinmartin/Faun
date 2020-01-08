@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Faun.GameState;
 using Faun.Controls;
 using Microsoft.Xna.Framework.Content;
+using Faun.Global;
 
 namespace Faun
 {
@@ -21,23 +22,21 @@ namespace Faun
 
         protected override void Initialize()
         {
-            base.Initialize();
             this.IsMouseVisible = true;
+            DebugDraw.Initialize(Content, _graphicsDeviceManager.GraphicsDevice);
+            base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            /* 
-             * Implement service provider?
-             */
-
+            // TODO: Implement service provider?
+            
+            // Init input.
             _input = new InputManager();
             _input.Initialize();
-            _stateManager = new GameStateManager(Content, _graphicsDeviceManager.GraphicsDevice, _input);
 
-            /*
-             * Create menu and world
-             */
+            // Create menu and world.
+            _stateManager = new GameStateManager(Content, _graphicsDeviceManager.GraphicsDevice, _input);
             _stateManager.CreateMainMenu();
         }
 
@@ -52,6 +51,7 @@ namespace Faun
 
             _stateManager.Update(gameTime);
             _input.Update();
+            DebugDraw.Refresh();
             base.Update(gameTime);
         }
 
