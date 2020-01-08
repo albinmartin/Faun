@@ -34,7 +34,7 @@ namespace Faun.Global
             _numPrints = 0;
         }
 
-        public static void Print(String text)
+        public static void Print(string text)
         {
             _spritebatch.Begin();
             _spritebatch.DrawString(_font, text, new Vector2(5, _numPrints * _font.LineSpacing + 2), Color.White);

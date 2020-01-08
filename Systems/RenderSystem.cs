@@ -49,7 +49,7 @@ namespace Faun.Systems
             float debugDepth = 0.0f;
 
             // Collect entities.
-            List<Entity> sprites = _entityManager.GetEntities(ComponentType.Sprite);
+            List<Entity> sprites = _entityManager.GetEntities(EntitySet);
             
             _spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null,null,null,null, _camera.Transform);
             foreach (var entity in sprites)
@@ -68,17 +68,14 @@ namespace Faun.Systems
                     sourceRect = _spriteParts[GetSpriteTextureIndex(entity), 0];
                 }
 
+                // Calculate draw order using layer depth. Depth = Y coordinate in screenspace, hence we transform postion to screen.
+                // Dividing by viewport scales value from 0 to 1.
+                // TODO: Origin on sprites. Cull sprites that is offscreen.
+                float layerDepth = 1.0f-Vector3.Transform(new Vector3(pos, 0.0f), _camera.Transform).Y/Graphics.Viewport.Height;
                 // Draw sprite.
-                //_spriteBatch.Draw(_spritesheet,pos, sourceRect, Color.White);
-                Vector3 depth = (Matrix.Identity *  Matrix.CreateTranslation(-pos.X,-pos.Y, 0)* _camera.Transform).Translation;
-                depth.Normalize();
-                debugDepth = depth.Y;
-                _spriteBatch.Draw(_spritesheet, pos, sourceRect, Color.White, 0, new Vector2(0.5f, 0.5f), 1, SpriteEffects.None, 0);
+                _spriteBatch.Draw(_spritesheet, pos, sourceRect, Color.White, 0, new Vector2(0f, 0f), 1, SpriteEffects.None, layerDepth);
             }
             _spriteBatch.End();
-            DebugDraw.Print("Depth = " + debugDepth.ToString());
-            DebugDraw.Print("Depth = " + debugDepth.ToString());
-            DebugDraw.Print("Depth = " + debugDepth.ToString());
         }
 
         public override void Update(GameTime gameTime)

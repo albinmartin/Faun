@@ -25,7 +25,9 @@ namespace Faun.Global
         public Camera(GraphicsDevice graphics)
         {
             _zDistance = -1;
-            Projection = Matrix.CreateOrthographic(1, 1, 0, 1);
+
+            // Create default spritebatch projection matrix
+            Projection = Matrix.CreateOrthographic(graphics.Viewport.Width, graphics.Viewport.Height, 0, 1); // TEMP!
             View = Matrix.CreateTranslation(new Vector3(0,0,_zDistance));
             Transform = Matrix.Identity * Matrix.CreateTranslation(0, 0, 0); 
             _viewportWidth = graphics.Viewport.Width;
