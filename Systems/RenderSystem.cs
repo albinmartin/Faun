@@ -37,7 +37,7 @@ namespace Faun.Systems
 
             for(int i = 0; i<spritesPerRow; i++)
             {
-                _spriteParts[0, i] = new Rectangle(i*(width/spritesPerRow), 0, width / spritesPerRow, height);
+                _spriteParts[(int)SpriteType.Goatman, i] = new Rectangle(i*(width/spritesPerRow), 0, width / spritesPerRow, height);
             }
 
             // Camera
@@ -71,7 +71,8 @@ namespace Faun.Systems
                 // TODO: Origin on sprites. Cull sprites that is offscreen.
                 float layerDepth = 1.0f-Vector3.Transform(new Vector3(pos, 0.0f), _camera.Transform).Y/Graphics.Viewport.Height;
                 // Draw sprite.
-                _spriteBatch.Draw(_spritesheet, pos, sourceRect, Color.White, 0, new Vector2(0f, 0f), 1, SpriteEffects.None, layerDepth);
+                // Args: sprite, position, source rect, color, rotation, origin, scale, effect, layerDepth.
+                _spriteBatch.Draw(_spritesheet, pos, sourceRect, Color.White, 0, new Vector2(sourceRect.Width/2,sourceRect.Height/2), 1, SpriteEffects.None, layerDepth);
             }
             _spriteBatch.End();
         }
