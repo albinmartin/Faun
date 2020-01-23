@@ -46,8 +46,6 @@ namespace Faun.Systems
 
         public override void Draw()
         {
-            float debugDepth = 0.0f;
-
             // Collect entities.
             List<Entity> sprites = _entityManager.GetEntities(EntitySet);
             

@@ -24,7 +24,7 @@ namespace Faun.Components
             this._type = ComponentType.Movement;
             Position = Vector2.Zero;
             Velocity = Vector2.Zero;
-            Speed = 1.5f;
+            Speed = 1.0f;
         }
 
         public Movement(Entity entity, Vector2 position)

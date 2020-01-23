@@ -64,7 +64,7 @@ namespace Faun.Systems
 
                     // Update camera. 
                     //TODO: Adjust for multiple players.
-                    _camera.Update(m.Position);
+                    _camera.Update(m.Position, gameTime);
                 }
 
                 
